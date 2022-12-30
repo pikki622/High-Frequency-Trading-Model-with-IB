@@ -256,10 +256,7 @@ class HftModel1(BaseModel):
 	@property
 	def is_position_flat(self):
 		position_obj = self.positions.get(self.symbols[0])
-		if not position_obj:
-			return True
-
-		return position_obj.position == 0
+		return position_obj.position == 0 if position_obj else True
 
 	@property
 	def is_position_short(self):
